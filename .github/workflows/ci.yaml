@@ -3,7 +3,7 @@ name: CI
 on: push
 
 jobs:
-  check-rs:
+  check:
     runs-on: ubuntu-latest
     steps:
       # Checkout the repository
@@ -14,14 +14,7 @@ jobs:
       - run: cargo fmt --all -- --check
       # Check code with clippy
       - run: cargo clippy --all --all-targets -- -D warnings
-      # Check if the code compiles
-      - run: cargo build --all --all-targets
-  check-js:
-    needs: check-rs
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      # Setup bun
+      # # Setup Node and Bun
       - uses: oven-sh/setup-bun@v1
         with:
           bun-version: 1.0.11
@@ -33,5 +26,7 @@ jobs:
       - run: bun eslint --max-warnings 0 .
       # Check toml
       - run: bun taplo check
+      # Build
+      - run: bun run build
       # Run tests
-      - run: bun test
+      - run: bun run test

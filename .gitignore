@@ -14,8 +14,10 @@ pnpm-lock.yaml
 # Misc
 .DS_Store
 
-# Build
-dist
+# Napi Build
+index.cjs
+index.d.ts
+/*.node
 
 # Publish (temp)
 .npmignore
