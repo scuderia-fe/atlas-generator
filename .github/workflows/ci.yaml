@@ -1,7 +1,6 @@
 name: CI
 
-on:
-  push
+on: push
 
 jobs:
   check-rs:
@@ -36,5 +35,3 @@ jobs:
       - run: bun taplo check
       # Run tests
       - run: bun test
-
-
