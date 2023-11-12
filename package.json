@@ -2,13 +2,26 @@
   "name": "@scuderia-fe/atlas-generator",
   "description": "Generate a spritesheet atlas from a folder of images",
   "version": "0.1.0",
-  "module": "lib/index.ts",
-  "type": "module",
+  "scripts": {
+    "artifacts": "napi artifacts",
+    "build": "napi build --platform --release",
+    "build:debug": "napi build --platform",
+    "prepublishOnly": "napi prepublish -t npm",
+    "test": "ava",
+    "universal": "napi universal",
+    "version": "napi version"
+  },
+  "napi": {
+    "name": "atlas-generator",
+    "triples": {}
+  },
+  "license": "MIT",
   "devDependencies": {
     "@napi-rs/cli": "^2.16.5",
     "@taplo/cli": "^0.5.2",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "@typescript-eslint/parser": "^6.10.0",
+    "ava": "^5.1.1",
     "bun-types": "1.0.11",
     "eslint": "^8.53.0",
     "eslint-config-prettier": "^9.0.0",
@@ -16,6 +29,9 @@
     "prettier": "^3.0.3",
     "simple-git-hooks": "^2.9.0",
     "typescript": "^5.2.2"
+  },
+  "ava": {
+    "timeout": "3m"
   },
   "simple-git-hooks": {
     "pre-commit": [

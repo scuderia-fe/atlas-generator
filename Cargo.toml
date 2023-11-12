@@ -1,5 +1,5 @@
 [package]
-name = "atlas-generator"
+name = "scuderia-fe_atlas-generator"
 authors = ["Alessio Marchi<alessiomarchi.dev@gmail.com>"]
 version = "0.1.0"
 edition = "2021"
@@ -10,7 +10,7 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-napi = "2.14.0"
+napi = { version = "2.14.0", default-features = false, features = ["napi4"] }
 napi-derive = "2.14.0"
 
 [build-dependencies]
@@ -19,3 +19,4 @@ napi-build = "2.1.0"
 [profile.release]
 lto = true
 opt-level = "z"
+debug = false

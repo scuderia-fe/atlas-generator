@@ -1,6 +1,13 @@
 # Node
 node_modules
 
+# Package Manager
+package-lock.json
+yarn.lock
+.yarnrc.yml
+.yarn
+pnpm-lock.yaml
+
 # Cargo
 /target
 
@@ -9,3 +16,7 @@ node_modules
 
 # Build
 dist
+
+# Publish (temp)
+.npmignore
+.github/workflows/publish.yml
