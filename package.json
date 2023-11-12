@@ -1,0 +1,36 @@
+{
+  "name": "@scuderia-fe/atlas-generator",
+  "description": "Generate a spritesheet atlas from a folder of images",
+  "version": "0.1.0",
+  "module": "lib/index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@napi-rs/cli": "^2.16.5",
+    "@taplo/cli": "^0.5.2",
+    "bun-types": "1.0.11",
+    "eslint": "^8.53.0",
+    "lint-staged": "^15.1.0",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
+  },
+  "lint-staged": {
+    "*.{ts,cjs,mjs}": [
+      "prettier --write --",
+      "eslint --fix --max-warnings=0 --"
+    ],
+    "*.toml": [
+      "taplo fmt --"
+    ],
+    "*.rs": [
+      "cargo fmt --"
+    ]
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "packageManager": "bun@1.0.11"
+}

@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push
+
+jobs:
+  check-rs:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the repository
+      - uses: actions/checkout@v4
+      # Setup rust
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
+      # Check formatting
+      - run: cargo fmt --all -- --check
+      # Check code with clippy
+      - run: cargo clippy --all --all-targets -- -D warnings
+      # Check if the code compiles
+      - run: cargo build --all --all-targets
+  check-js:
+    needs: check-rs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # Setup bun
+      - uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: 1.0.11
+      # Install dependencies
+      - run: bun install
+      # Check that the code is formatted correctly
+      - run: bun prettier --check .
+      # Check that the code is linted correctly
+      - run: bun eslint --max-warnings 0 .
+      # Check toml
+      - run: bun taplo check
+      # Run tests
+      - run: bun test
+
+
