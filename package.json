@@ -1,6 +1,6 @@
 {
   "name": "@scuderia-fe/atlas-generator",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "devDependencies": {
     "@commitlint/cli": "^18.4.1",
     "@commitlint/config-conventional": "^18.4.0",
