@@ -61,9 +61,9 @@
     "commitlint": "commitlint --edit $1"
   },
   "simple-git-hooks": {
-    "commit-msg": "commitlint",
     "pre-commit": [
-      "bun lint-staged && bun commitlint"
+      "bun lint-staged",
+      "bun commitlint"
     ]
   },
   "type": "module"
