@@ -57,13 +57,14 @@
     "prepublishOnly": "napi prepublish -t npm",
     "test": "ava",
     "universal": "napi universal",
-    "version": "napi version",
-    "commitlint": "commitlint --edit $1"
+    "version": "napi version"
   },
   "simple-git-hooks": {
+    "commit-msg": [
+      "bun commitlint --edit ${1}"
+    ],
     "pre-commit": [
-      "bun lint-staged",
-      "bun commitlint"
+      "bun lint-staged"
     ]
   },
   "type": "module"
