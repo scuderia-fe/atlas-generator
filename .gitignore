@@ -19,6 +19,9 @@ index.cjs
 index.d.ts
 /*.node
 
+# Ide
+.idea
+
 # Publish (temp)
 .npmignore
 .github/workflows/publish.yml
